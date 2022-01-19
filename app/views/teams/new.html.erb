@@ -1,0 +1,8 @@
+<div class="team-name-register">
+  <%= form_with model: @team, local: true do |f| %>
+  <div class="new-items">
+      <%= f.text_area :team_name, class:"team_name", id:"team_name", placeholder:"チーム名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.submit "登録する"%>
+  </div>
+  <% end %>
+</div>

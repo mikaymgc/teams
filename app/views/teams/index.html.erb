@@ -1,0 +1,19 @@
+<p>index</p>
+
+<%= link_to 'チーム登録', new_team_path, class: "team-register" %>
+
+<div class="teams row">
+  <ul class='team-lists'>
+    <% @teams.each do |team| %>
+      <li class='list'>
+        <%= link_to team_path(team.id) do %>
+        <div class="teamname">
+          <span class="name">
+            <%= team.team_name %>
+          </span>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

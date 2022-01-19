@@ -36,7 +36,7 @@
 | referee_grade_id         | integer    | null: false                    |
 | referee_deadline         | date       | null: false                    |
 | insurance_id             | integer    | null: false                    |
-| user                     | references | null: false, foreign_key: true |
+| team                     | references | null: false, foreign_key: true |
 
 ### Association
 
