@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル (仮)
 
-* Ruby version
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| manager            | string | null: false               |
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :teams
 
-* Database creation
+## teams テーブル
 
-* Database initialization
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| team_name          | string | null: false, unique: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- has_many :members
 
-* Deployment instructions
+## members テーブル
 
-* ...
+| Column                   | Type       | Options                        |
+| ------------------------ | ---------- | ------------------------------ |
+| name                     | string     | null: false                    |
+| birthday                 | date       | null: false                    |
+| phone_number             | string     | null: false                    |
+| gender_id                | integer    | null: false                    |
+| technical_grade_id       | integer    | null: false                    |
+| referee_grade_id         | integer    | null: false                    |
+| referee_deadline         | date       | null: false                    |
+| insurance_id             | integer    | null: false                    |
+| user                     | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :team
