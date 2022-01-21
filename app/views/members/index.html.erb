@@ -1,0 +1,18 @@
+<p>★メンバー 一覧★</p>
+
+<div class="member row">
+  <ul class='member-lists'>
+    <% @members.each do |member| %>
+      <li class='list'>
+        <%= link_to team_path(member.id) do %>
+        <div class="membername">
+          <span><%= member.name %><%= member.birthday %></span>
+        </div>
+        <div class="membebirthday">
+          <%= member.birthday %>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
