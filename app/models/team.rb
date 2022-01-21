@@ -1,6 +1,6 @@
 class Team < ApplicationRecord
 
-  #アソシエーション記述
+  has_many :members
 
   validates :team_name, presence: true
 end

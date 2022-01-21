@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_19_031013) do
+ActiveRecord::Schema.define(version: 2022_01_19_093645) do
+
+  create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.date "birthday"
+    t.string "phone_number"
+    t.integer "gender_id"
+    t.integer "technical_grade_id"
+    t.integer "referee_grade_id"
+    t.date "referee_deadline"
+    t.integer "insurance_id"
+    t.bigint "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_members_on_team_id"
+  end
 
   create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "team_name"
@@ -18,4 +33,5 @@ ActiveRecord::Schema.define(version: 2022_01_19_031013) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "members", "teams"
 end
