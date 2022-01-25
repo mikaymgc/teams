@@ -1,0 +1,21 @@
+
+#btn-outline-dark {
+ font-size: 25px;
+ padding: 10px 15px;
+ position: fixed;
+ right: 15px;
+}
+
+.teams {
+  margin: 10px;
+  font-size: 30px;
+}
+
+.team-lists {
+  list-style-type: none;
+}
+
+.teamname{
+  text-decoration: none;
+  color: black;
+}
