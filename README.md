@@ -35,7 +35,7 @@
 | technical_grade_id       | integer    | null: false                    |
 | referee_grade_id         | integer    | null: false                    |
 | referee_deadline         | date       | null: false                    |
-| insurance_id             | integer    | null: false                    |
+| c_id             | integer    | null: false                    |
 | team                     | references | null: false, foreign_key: true |
 
 ### Association

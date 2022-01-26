@@ -4,14 +4,11 @@
   <ul class='member-lists'>
     <% @members.each do |member| %>
       <li class='list'>
-        <%= link_to team_path(member.id) do %>
-        <div class="membername">
-          <span><%= member.name %><%= member.birthday %></span>
-        </div>
-        <div class="membebirthday">
-          <%= member.birthday %>
-        </div>
-        <% end %>
+        <span>
+          <%= link_to team_path(member.id) do %>
+            <%= member.name %>
+          <% end %>
+        </span>
       </li>
     <% end %>
   </ul>
