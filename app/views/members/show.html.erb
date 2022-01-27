@@ -1,0 +1,28 @@
+<div class="member fs-1">
+  <%= @member.team.team_name %>:<%= @member.name %>
+</div>
+
+<table class="table table-striped table-hover fs-3">
+      <tbody>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @member.phone_number %></td>
+        </tr>
+        <tr>
+          <th>技術等級</th>
+          <td><%= @member.technical_grade.name %></td>
+        </tr>
+        <tr>
+          <th>審判資格</th>
+          <td><%= @member.referee_grade.name %></td>
+        </tr>
+        <tr>
+          <th>審判資格期限</th>
+          <td><%= @member.referee_deadline %></td>
+        </tr>
+        <tr>
+          <th class="detail-member">保険</th>
+          <td class="detail-value"><%= @member.insurance.name %></td>
+        </tr>
+      </tbody>
+    </table>
