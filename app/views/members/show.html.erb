@@ -1,28 +1,36 @@
-<div class="member fs-1">
-  <%= @member.team.team_name %>:<%= @member.name %>
+<div>
+  <span  class="member fs-3">
+    <%= @member.team.team_name %>：<%= @member.name %>
+  </span>
+  <span  class="member fs-3">
+    <%= link_to "一覧へ戻る", team_members_path(@member.team_id), class:"btn btn-outline-secondary" %>
+  </span>
 </div>
 
-<table class="table table-striped table-hover fs-3">
-      <tbody>
-        <tr>
-          <th>電話番号</th>
-          <td><%= @member.phone_number %></td>
-        </tr>
-        <tr>
-          <th>技術等級</th>
-          <td><%= @member.technical_grade.name %></td>
-        </tr>
-        <tr>
-          <th>審判資格</th>
-          <td><%= @member.referee_grade.name %></td>
-        </tr>
-        <tr>
-          <th>審判資格期限</th>
-          <td><%= @member.referee_deadline %></td>
-        </tr>
-        <tr>
-          <th class="detail-member">保険</th>
-          <td class="detail-value"><%= @member.insurance.name %></td>
-        </tr>
-      </tbody>
-    </table>
+<table class="table table-striped table-hover">
+  <tbody>
+    <tr>
+      <th>電話番号</th>
+      <td><%= @member.phone_number %></td>
+    </tr>
+    <tr>
+      <th>技術等級</th>
+      <td><%= @member.technical_grade.name %></td>
+    </tr>
+    <tr>
+      <th>審判資格</th>
+      <td><%= @member.referee_grade.name %></td>
+    </tr>
+    <tr>
+      <th>審判資格期限</th>
+      <td><%= @member.referee_deadline %></td>
+    </tr>
+    <tr>
+      <th class="detail-member">保険</th>
+      <td class="detail-value"><%= @member.insurance.name %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "編集",  edit_team_member_path(@member.id), class: "btn btn-outline-secondary" %>
+<%= link_to "削除", team_member_path(@member.id), method: :delete, class:"btn btn-outline-secondary" %>
