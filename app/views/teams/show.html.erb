@@ -1,9 +1,0 @@
-<h2 class="name">
-  <%= @team.team_name %>
-</h2>
-
-<%= link_to "チーム名編集", edit_team_path(@team.id), method: :get, class: "team-red-btn" %>
-<%= link_to "チーム削除", team_path(@team.id), method: :delete, class:"team-destroy" %>
-
-<%= link_to "メンバー登録", new_team_member_path(@team.id), class: "member" %>
-<%= link_to "メンバー一覧", team_members_path(@team.id), class:"#" %>
