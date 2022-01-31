@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-
+  before_action :day, only: [:index, :show]
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -46,6 +46,10 @@ class MembersController < ApplicationController
 
   def set_member
     @member = Member.find(params[:id])
+  end
+
+  def day
+    @today = Date.today.strftime("%Y%m%d").to_i
   end
 end
 
