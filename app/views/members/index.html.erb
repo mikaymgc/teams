@@ -4,6 +4,7 @@
     <tr>
       <th scope="col"></th>
       <th scope="col">名前</th>
+      <th scope="col">年齢</th>
       <th scope="col">生年月日</th>
       <th scope="col">電話番号</th>
       <th scope="col">技術等級</th>
@@ -24,6 +25,7 @@
             <%= member.name %>
           <% end %>
         </td>
+        <td><%= (@today - member.birthday.strftime("%Y%m%d").to_i) / 10000 %></td>
         <td><%= member.birthday %></td>
         <td><%= member.phone_number %></td>
         <td><%= member.technical_grade.name %></td>

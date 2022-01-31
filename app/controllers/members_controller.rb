@@ -4,6 +4,7 @@ class MembersController < ApplicationController
 
   def index
     @members = Member.all
+    @today = Date.today.strftime("%Y%m%d").to_i
   end
   
   def new
