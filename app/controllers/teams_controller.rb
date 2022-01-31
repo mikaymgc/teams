@@ -20,7 +20,6 @@ class TeamsController < ApplicationController
   end
 
   def show
-    #ここでメンバー一覧表示したい
   end
 
   def edit

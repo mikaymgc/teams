@@ -9,7 +9,12 @@
 
 <table class="table table-striped table-hover">
   <tbody>
-    <th>生年月日</th>
+    <tr>
+      <th>年齢</th>
+      <td><%= (@today - @member.birthday.strftime("%Y%m%d").to_i) / 10000 %></td>
+    </tr>
+    <tr>
+      <th>生年月日</th>
       <td><%= @member.birthday %></td>
     </tr>
     <tr>
