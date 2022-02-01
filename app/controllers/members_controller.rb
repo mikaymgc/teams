@@ -3,7 +3,7 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
-    @members = Member.all
+    @members = Member.where(team_id: params[:team_id])
   end
   
   def new

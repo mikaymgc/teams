@@ -25,7 +25,11 @@
             <%= member.name %>
           <% end %>
         </td>
-        <td><%= (@today - member.birthday.strftime("%Y%m%d").to_i) / 10000 %></td>
+        <td>
+        <% if member.birthday.present? %>
+          <%= (@today - member.birthday.strftime("%Y%m%d").to_i) / 10000 %>
+        <% end %>
+        </td>
         <td><%= member.birthday %></td>
         <td><%= member.phone_number %></td>
         <td><%= member.technical_grade.name %></td>
