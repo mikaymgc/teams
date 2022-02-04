@@ -1,3 +1,16 @@
+<div>
+  <span  class="member fs-3">
+    <%= @team.team_name %>
+  </span>
+    <span  class="member fs-3">
+    <%= link_to "メンバー登録",  new_team_member_path(@team.id), class:"btn btn-outline-secondary" %>
+  </span>
+  <span  class="member fs-3">
+    <%= link_to "TOPページへ戻る", root_path, class:"btn btn-outline-secondary" %>
+  </span>
+</div>
+
+
 
 <table class="table table-striped mt-3">
   <thead class="table-dark">

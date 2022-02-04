@@ -11,9 +11,11 @@
   <tbody>
     <tr>
       <th>年齢</th>
-      <% if @member.birthday.present? %>
-        <%= (@today - member.birthday.strftime("%Y%m%d").to_i) / 10000 %>
-      <% end %>
+      <td>
+        <% if @member.birthday.present? %>
+          <%= (@today - @member.birthday.strftime("%Y%m%d").to_i) / 10000 %>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <th>生年月日</th>
