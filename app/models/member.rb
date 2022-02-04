@@ -1,5 +1,6 @@
 class Member < ApplicationRecord
 
+  belongs_to :user
   belongs_to :team
 
   extend ActiveHash::Associations::ActiveRecordExtensions
