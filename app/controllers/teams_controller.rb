@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-
+  before_action :authenticate_user!, except: :index
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -40,7 +40,7 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:team_name)
+    params.require(:team).permit(:team_name).merge(user_id: current_user.id)
   end
 
   def set_team

@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  before_action :authenticate_user!
   before_action :day, only: [:index, :show]
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
@@ -42,7 +43,7 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:name, :birthday, :phone_number, :gender_id, :technical_grade_id, :referee_grade_id, :referee_deadline, :insurance_id).merge(team_id: params[:team_id])
+    params.require(:member).permit(:name, :birthday, :phone_number, :gender_id, :technical_grade_id, :referee_grade_id, :referee_deadline, :insurance_id).merge(team_id: params[:team_id],user_id: current_user.id)
   end
 
   def set_member
