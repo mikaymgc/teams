@@ -1,0 +1,56 @@
+<%= render "shared/header" %>
+
+<div>
+  <span  class="member fs-3">
+    <%= @team.team_name %>
+  </span>
+    <span  class="member fs-3">
+    <%= link_to "メンバー登録",  new_team_member_path(@team.id), class:"btn btn-outline-secondary" %>
+  </span>
+  <span  class="member fs-3">
+    <%= link_to "TOPページへ戻る", root_path, class:"btn btn-outline-secondary" %>
+  </span>
+</div>
+
+
+
+<table class="table table-striped mt-3">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">名前</th>
+      <th scope="col">年齢</th>
+      <th scope="col">生年月日</th>
+      <th scope="col">電話番号</th>
+      <th scope="col">技術等級</th>
+      <th scope="col">審判資格</th>
+      <th scope="col">審判員期限</th>
+      <th scope="col">保険</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @members.each.with_index(1) do |member,i| %>
+      <tr>
+        <th scope="row">
+          <%= i %>
+        </th>
+        <td>
+          <%= link_to team_member_path(member.team_id ,member.id), class:"member-name" do %>
+            <%= member.name %>
+          <% end %>
+        </td>
+        <td>
+        <% if member.birthday.present? %>
+          <%= (@today - member.birthday.strftime("%Y%m%d").to_i) / 10000 %>
+        <% end %>
+        </td>
+        <td><%= member.birthday %></td>
+        <td><%= member.phone_number %></td>
+        <td><%= member.technical_grade.name %></td>
+        <td><%= member.referee_grade.name %></td>
+        <td><%= member.referee_deadline %></td>
+        <td><%= member.insurance.name %></td>
+      </tr>
+    <% end %>
+</table>

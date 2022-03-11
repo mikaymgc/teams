@@ -1,11 +1,9 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
-  before_action :day, only: [:index, :show]
   before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :day, only: [:show]
 
   def index
-    @members = Member.where(team_id: params[:team_id])
-    @team = Team.find(params[:team_id])
   end
   
   def new
@@ -13,16 +11,15 @@ class MembersController < ApplicationController
   end
   
   def create
-    @member = Member.new(member_params)
-    if @member.save
-      redirect_to team_members_path
+    member = Member.new(member_params)
+    if member.save
+      redirect_to "/teams/#{member.team.id}"
     else
       render :new
     end
   end
   
   def show
-    #各メンバーの詳細
   end
   
   def edit
@@ -37,7 +34,7 @@ class MembersController < ApplicationController
   end
   
   def destroy
-    redirect_to team_members_path if @member.destroy
+    redirect_to "/teams/#{@member.team.id}" if @member.destroy
   end
 
   private
@@ -48,6 +45,10 @@ class MembersController < ApplicationController
 
   def set_member
     @member = Member.find(params[:id])
+  end
+
+  def set_team
+    team = Team.find(params[:id])
   end
 
   def day

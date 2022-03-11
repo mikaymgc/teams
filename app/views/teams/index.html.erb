@@ -39,7 +39,7 @@
             <% end %>
           </span>
           <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="メンバー一覧">
-            <%= link_to team_members_path(team.id), class:"btn btn-outline-dark" do %>
+            <%= link_to team_path(team.id), class:"btn btn-outline-dark" do %>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                 <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                 <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
@@ -52,11 +52,13 @@
     </ul>
   </div>
 <% else %>
-  <ul class="top">
-    <li><%= link_to 'ログイン',new_user_session_path, class: "login" %></li>
-    <li><%= link_to '新規登録',new_user_registration_path, class: "signup" %></li>
-  </ul>
-  <div class="background">
-    TEAM'S
+  <div class="logout">
+    <div class="">
+      <h1>TEAM'S</h1>
+      <p>ようこそ、チーム管理アプリの『TEAM'S』へ。</p>
+      <p>ログインもしくは新規登録からスタート！</p>
+    </div>
+    <span><%= link_to "ログイン",new_user_session_path, class: "login" %></span>
+    <span><%= link_to "新規登録",new_user_registration_path, class: "signup" %></span>
   </div>
 <% end %>
