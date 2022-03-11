@@ -10,6 +10,7 @@ class CreateMembers < ActiveRecord::Migration[6.0]
       t.date :referee_deadline
       t.integer :insurance_id 
       t.references :team, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end

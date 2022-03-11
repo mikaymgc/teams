@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
-
+  before_action :authenticate_user!, except: :index
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :day, only: [:show]
 
   def index
     @teams = Team.all
@@ -20,6 +21,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @members = @team.members.includes(:team)
   end
 
   def edit
@@ -40,10 +42,14 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:team_name)
+    params.require(:team).permit(:team_name).merge(user_id: current_user.id)
   end
 
   def set_team
     @team = Team.find(params[:id])
+  end
+
+  def day
+    @today = Date.today.strftime("%Y%m%d").to_i
   end
 end
