@@ -1,15 +1,13 @@
-<%= render "shared/header" %>
+<%= form_with model: @member, url: team_members_path, class:"member-register",local: true do |f| %>
+  <h1>メンバー登録</h1>
 
-<h1>メンバー登録</h1>
-
-<%= form_with model: @member, url: team_members_path, local: true do |f| %>
-  <div>
-    <p>名前(必須)</p>
+  <div class="field">
+    <%= f.label :"名前(必須)" %><br />
     <%= f.text_area :name, placeholder:"名前を入力", class:"form-control" %>
   </div>
 
-  <div>
-    <p>生年月日</p>
+  <div class="field">
+    <%= f.label :生年月日 %><br />
     <%= raw sprintf(
                     f.date_select(
                       :birthday,
@@ -21,28 +19,28 @@
                     "年", "月") + "日" %>
   </div>
 
-  <div>
-    <p>電話番号</p>
+  <div class="field">
+    <%= f.label :電話番号 %><br />
     <%= f.text_field :phone_number, placeholder:"例）09012345678",class:"form-control",maxlength:"11"%>
   </div>
 
-  <div>
-    <p>性別</p>
+  <div class="field">
+    <%= f.label :性別 %><br />
     <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"form-select"}) %>
   </div>
 
-  <div>
-    <p>技術等級</p>
+  <div class="field">
+    <%= f.label :技術等級 %><br />
     <%= f.collection_select(:technical_grade_id, TechnicalGrade.all, :id, :name, {}, {class:"form-select"}) %>
   </div>
 
-  <div>
-    <p>審判資格</p>
+  <div class="field">
+    <%= f.label :審判資格 %><br />
     <%= f.collection_select(:referee_grade_id, RefereeGrade.all, :id, :name, {}, {class:"form-select"}) %>
   </div>
 
-  <div>
-    <p>審判員期限</p>
+  <div class="field">
+    <%= f.label :審判員期限 %><br />
     <%= raw sprintf(
                     f.date_select(
                       :referee_deadline,
@@ -56,12 +54,12 @@
                     "年") +"月"%>
   </div>
 
-  <div>
-    <p>保険加入</p>
+  <div class="field">
+    <%= f.label :保険加入 %><br />
     <%= f.collection_select(:insurance_id, Insurance.all, :id, :name, {}, {class:"form-select"}) %>
   </div>
 
-  <div>
-    <%= f.submit "メンバー登録" ,class:"btn btn-primary" %>
+  <div class="actions">
+    <%= f.submit "メンバー登録" ,class:"btn btn-primary", id:"btn-btn-primary" %>
   </div>
 <% end %>

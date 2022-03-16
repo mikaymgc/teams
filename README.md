@@ -1,43 +1,18 @@
-# README
+# アプリケーション名
 
-# テーブル設計
+Team's
 
-## users テーブル (仮)
+# アプリケーション概要
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| manager            | string | null: false               |
+テニステームのメンバー管理アプリです。
+メンバーの資格や連盟への登録内容を登録・確認ができます。
 
-### Association
+# アプリケーションを作成した背景
 
-- has_many :teams
+私自身がテニスのチームに所属しており、チーム管理をしている友人をみてもっと楽にできればという思いから作成しました。
 
-## teams テーブル
+# 洗い出した用件
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| team_name          | string | null: false, unique: true |
+★要件定義をまとめたスプレッドシートのリンクを記載。
 
-### Association
 
-- has_many :members
-
-## members テーブル
-
-| Column                   | Type       | Options                        |
-| ------------------------ | ---------- | ------------------------------ |
-| name                     | string     | null: false                    |
-| birthday                 | date       | null: false                    |
-| phone_number             | string     | null: false                    |
-| gender_id                | integer    | null: false                    |
-| technical_grade_id       | integer    | null: false                    |
-| referee_grade_id         | integer    | null: false                    |
-| referee_deadline         | date       | null: false                    |
-| insurance_id             | integer    | null: false                    |
-| team                     | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :team

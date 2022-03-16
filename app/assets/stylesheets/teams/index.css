@@ -1,23 +1,23 @@
 
-#btn-outline-dark {
+#btn-outline-secondary {
  font-size: 25px;
  padding: 10px 15px;
+ margin-top: 10px;
  position: fixed;
  right: 15px;
 }
 
 .teams {
-  margin: 10px;
-  font-size: 30px;
+  margin: 30px;
+  font-size: 40px;
 }
 
 .team-lists {
   list-style-type: none;
 }
 
-.teamname{
-  text-decoration: none;
-  color: black;
+.team-name {
+  margin-right: 10px;
 }
 
 .logout {
@@ -26,4 +26,8 @@
   background-size: cover;
   height: 100vh;
   width: 100vw;
+}
+
+.guidance {
+  justify-items: center;
 }

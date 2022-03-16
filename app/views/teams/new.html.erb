@@ -1,9 +1,7 @@
-<%= render "shared/header" %>
-
 <div class="team-name-register">
   <%= form_with model: @team, local: true do |f| %>
   <div class="new-teams">
-      <%= f.text_area :team_name, class:"form-control", id:"team-name", placeholder:"チーム名を入力（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_field :team_name, class:"form-control", id:"team-name", placeholder:"チーム名を入力（必須 40文字まで)", maxlength:"40" %>
       <%= f.submit "登録する", class:"btn btn-primary", id:"team-submit-btn" %>
   </div>
   <% end %>
