@@ -1,65 +1,77 @@
-<%= form_with model: @member, url: team_members_path, class:"member-register",local: true do |f| %>
-  <h1>メンバー登録</h1>
-
-  <div class="field">
-    <%= f.label :"名前(必須)" %><br />
-    <%= f.text_area :name, placeholder:"名前を入力", class:"form-control" %>
+<div>
+  <div>
+    <span class="member fs-3">
+      メンバー編集
+    </span>
+    <span  class="member fs-3">
+      <%= link_to "一覧へ", team_path(@team), class:"btn btn-outline-secondary" %>
+    </span>
+    <span  class="member fs-3">
+      <%= link_to "TOPページへ戻る", root_path, class:"btn btn-outline-secondary" %>
+    </span>
   </div>
 
-  <div class="field">
-    <%= f.label :生年月日 %><br />
-    <%= raw sprintf(
-                    f.date_select(
-                      :birthday,
-                      use_month_numbers: true,
-                      prompt:'--',
-                      start_year: 1950,
-                      end_year: (Time.now.year - 10),
-                      date_separator: '%s'),
-                    "年", "月") + "日" %>
-  </div>
+  <%= form_with model: @member, url: team_members_path, class:"member-register",local: true do |f| %>
+    <div class="field">
+      <%= f.label :"名前(必須)" %><br />
+      <%= f.text_field :name, placeholder:"名前を入力", class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :電話番号 %><br />
-    <%= f.text_field :phone_number, placeholder:"例）09012345678",class:"form-control",maxlength:"11"%>
-  </div>
+    <div class="field">
+      <%= f.label :生年月日 %><br />
+      <%= raw sprintf(
+                      f.date_select(
+                        :birthday,
+                        use_month_numbers: true,
+                        prompt:'--',
+                        start_year: 1950,
+                        end_year: (Time.now.year - 10),
+                        date_separator: '%s'),
+                      "年", "月") + "日" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :性別 %><br />
-    <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"form-select"}) %>
-  </div>
+    <div class="field">
+      <%= f.label :電話番号 %><br />
+      <%= f.text_field :phone_number, placeholder:"例）09012345678",class:"form-control",maxlength:"11"%>
+    </div>
 
-  <div class="field">
-    <%= f.label :技術等級 %><br />
-    <%= f.collection_select(:technical_grade_id, TechnicalGrade.all, :id, :name, {}, {class:"form-select"}) %>
-  </div>
+    <div class="field">
+      <%= f.label :性別 %><br />
+      <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"form-select"}) %>
+    </div>
 
-  <div class="field">
-    <%= f.label :審判資格 %><br />
-    <%= f.collection_select(:referee_grade_id, RefereeGrade.all, :id, :name, {}, {class:"form-select"}) %>
-  </div>
+    <div class="field">
+      <%= f.label :技術等級 %><br />
+      <%= f.collection_select(:technical_grade_id, TechnicalGrade.all, :id, :name, {}, {class:"form-select"}) %>
+    </div>
 
-  <div class="field">
-    <%= f.label :審判員期限 %><br />
-    <%= raw sprintf(
-                    f.date_select(
-                      :referee_deadline,
-                      use_month_numbers: true,
-                      discard_day: true,
-                      class:"form-select",
-                      prompt:'--',
-                      start_year: 2020,
-                      end_year: (Time.now.year + 10),
-                      date_separator: '%s'),
-                    "年") +"月"%>
-  </div>
+    <div class="field">
+      <%= f.label :審判資格 %><br />
+      <%= f.collection_select(:referee_grade_id, RefereeGrade.all, :id, :name, {}, {class:"form-select"}) %>
+    </div>
 
-  <div class="field">
-    <%= f.label :保険加入 %><br />
-    <%= f.collection_select(:insurance_id, Insurance.all, :id, :name, {}, {class:"form-select"}) %>
-  </div>
+    <div class="field">
+      <%= f.label :審判員期限 %><br />
+      <%= raw sprintf(
+                      f.date_select(
+                        :referee_deadline,
+                        use_month_numbers: true,
+                        discard_day: true,
+                        class:"form-select",
+                        prompt:'--',
+                        start_year: 2020,
+                        end_year: (Time.now.year + 10),
+                        date_separator: '%s'),
+                      "年") +"月"%>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "メンバー登録" ,class:"btn btn-primary", id:"btn-btn-primary" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :保険加入 %><br />
+      <%= f.collection_select(:insurance_id, Insurance.all, :id, :name, {}, {class:"form-select"}) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "メンバー登録" ,class:"btn btn-primary", id:"btn-btn-primary" %>
+    </div>
+  <% end %>
+</div>

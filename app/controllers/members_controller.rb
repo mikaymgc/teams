@@ -8,6 +8,8 @@ class MembersController < ApplicationController
   
   def new
     @member = Member.new
+    @team = Team.find(params[:team_id])
+
   end
   
   def create
@@ -45,10 +47,6 @@ class MembersController < ApplicationController
 
   def set_member
     @member = Member.find(params[:id])
-  end
-
-  def set_team
-    team = Team.find(params[:id])
   end
 
   def day
