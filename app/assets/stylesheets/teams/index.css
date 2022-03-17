@@ -29,5 +29,6 @@
 }
 
 .guidance {
-  justify-items: center;
+  margin-top: 50px;
+  text-align: center;
 }
