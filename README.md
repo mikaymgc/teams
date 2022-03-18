@@ -71,10 +71,10 @@ https://docs.google.com/spreadsheets/d/1Ydj60GB3Yml1lJcPOs4SKfnPOY7r5TiZtPILY-xU
 
 # 開発環境
 
-フロントエンド  
-バックエンド  
-インフラ  
-テキストエディタ  
+Ruby on Rails  
+HTML・CSS  
+Bootstrap  
+Visual Studio Code  
 
 # 工夫したポイント
 
