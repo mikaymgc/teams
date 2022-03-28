@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_01_19_093645) do
     t.date "birthday"
     t.string "phone_number"
     t.integer "gender_id"
+    t.integer "type_id"
     t.integer "technical_grade_id"
     t.integer "referee_grade_id"
     t.date "referee_deadline"

@@ -18,6 +18,7 @@
       <th scope="col">年齢</th>
       <th scope="col">生年月日</th>
       <th scope="col">電話番号</th>
+      <th scope="col">会員タイプ</th>
       <th scope="col">技術等級</th>
       <th scope="col">審判資格</th>
       <th scope="col">審判員期限</th>
@@ -43,6 +44,7 @@
         </td>
         <td><%= member.birthday %></td>
         <td><%= member.phone_number %></td>
+        <td><%= member.type.name %></td>
         <td><%= member.technical_grade.name %></td>
         <td><%= member.referee_grade.name %></td>
         <td><%= member.referee_deadline %></td>
