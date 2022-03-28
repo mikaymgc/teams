@@ -41,6 +41,11 @@
     </div>
 
     <div class="field">
+      <%= f.label :会員タイプ %><br />
+      <%= f.collection_select(:type_id, Type.all, :id, :name, {}, {class:"form-select"}) %>
+    </div>
+
+    <div class="field">
       <%= f.label :技術等級 %><br />
       <%= f.collection_select(:technical_grade_id, TechnicalGrade.all, :id, :name, {}, {class:"form-select"}) %>
     </div>

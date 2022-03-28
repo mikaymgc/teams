@@ -42,7 +42,7 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:name, :birthday, :phone_number, :gender_id, :technical_grade_id, :referee_grade_id, :referee_deadline, :insurance_id).merge(team_id: params[:team_id],user_id: current_user.id)
+    params.require(:member).permit(:name, :birthday, :phone_number, :gender_id, :type_id, :technical_grade_id, :referee_grade_id, :referee_deadline, :insurance_id).merge(team_id: params[:team_id],user_id: current_user.id)
   end
 
   def set_member

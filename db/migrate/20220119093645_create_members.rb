@@ -5,6 +5,7 @@ class CreateMembers < ActiveRecord::Migration[6.0]
       t.date :birthday
       t.string :phone_number
       t.integer :gender_id
+      t.integer :type_id
       t.integer :technical_grade_id
       t.integer :referee_grade_id
       t.date :referee_deadline
